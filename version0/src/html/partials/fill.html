@@ -1,0 +1,75 @@
+<fieldset class="fieldset collapse">
+  <include
+    src="./legend.html"
+    class="js_legendFill"
+    icon="far fa-keyboard item--icon"
+    title="Rellena"
+  ></include>
+
+  <div class="form js_collapsible">
+    <label class="form__label" for="name">Nombre completo</label>
+    <input
+      class="input form__label--input js-form__input--name"
+      placeholder="Ej:Mari Puri López"
+      type="text"
+      id="name"
+      name="name"
+      required
+    />
+    <label class="form__label" for="job">Puesto</label>
+    <input
+      class="input form__label--input js-form__input--job"
+      placeholder="Ej:Master and Commander"
+      type="text"
+      id="job"
+      name="job"
+      required
+    />
+    <p class="form__label">Imagen de perfil</p>
+    <div class="form__label--wrapper">
+      <label for="photo" class="button">Añadir imagen</label>
+      <div class="imgPreview js__profile-preview"></div>
+    </div>
+    <input
+      type="file"
+      class="hidden js__profile-upload-btn input"
+      name="photo"
+      id="photo"
+    />
+
+    <label class="form__label" for="emailAdress">Email</label>
+    <input
+      class="input form__label--input js-form__input--mail"
+      placeholder="Ej:maripuri@lamaster.com"
+      type="email"
+      id="email"
+      name="email"
+      required
+    />
+    <label class="form__label" for="phone">Teléfono</label>
+    <input
+      class="input form__label--input js-form__input--phone"
+      placeholder="Ej:+34 611661234"
+      type="text"
+      id="phone"
+      name="phone"
+      required
+    />
+    <label class="form__label" for="linkedIn">LinkedIn</label>
+    <input
+      class="input form__label--input js-form__input--linkedin"
+      placeholder="Ej:linkedin.com/es/lamari.master"
+      type="text"
+      id="linkedin"
+      name="linkedin"
+    />
+    <label class="form__label" for="gitHub">Github</label>
+    <input
+      class="input form__label--input js-form__input--github"
+      placeholder="Ej:@lamari"
+      type="text"
+      id="github"
+      name="github"
+    />
+  </div>
+</fieldset>
