@@ -1,8 +1,32 @@
 import '../styles/App.scss';
 import imgTarjetasMolonas from '../images/tarjetas-molonas.png';
+import { useState } from 'react';
 //Recordar styles que sacamos de html
 
 function App() {
+  const [data, setData] = useState({
+    palette: 1,
+    name: 'Nombre Completo',
+    job: '',
+
+  });
+const handleInput = (ev) =>{
+  const inputChanged = ev.currentTarget.name;
+  
+  if (inputChanged === 'name'){
+    setData({
+      ...data,
+      name:ev.currentTarget.value,
+    });
+  } else if (inputChanged === 'job'){
+      setData({
+        ...data,
+        job:ev.currentTarget.value,
+      });
+    
+  }
+}
+
   return (
     <div>
          <header className="header">
@@ -30,8 +54,8 @@ function App() {
         <article className="preview__article palette-1">
         	<div className="preview__article--container">
         		<div className="preview__article--rectangle js-rectangle"></div>
-        		<h2 className="preview__article--name js-preview__name">Nombre Apellido</h2>
-        		<h3 className="preview__article--job js-preview__job">Front-end developer</h3>
+        		<h2 className="preview__article--name js-preview__name">{data.name || 'Nombre Completo'}</h2>
+        		<h3 className="preview__article--job js-preview__job">{data.job ||'Front-end developer'}</h3>
         	</div>
         	<div className="preview__article--img js__profile-image"></div>
         	<div className="container">
@@ -138,9 +162,10 @@ function App() {
           </legend> 
           {/* style="color: #54585a" */}
 
-          <div className="form js_collapsible">
+          <div className="form ">
             <label className="form__label" htmlFor="name">Nombre completo</label>
             <input
+            onChange={handleInput}
               className="input form__label--input js-form__input--name"
               placeholder="Ej:Mari Puri López"
               type="text"
@@ -150,6 +175,7 @@ function App() {
             />
             <label className="form__label" htmlFor="job">Puesto</label>
             <input
+            onChange={handleInput}
               className="input form__label--input js-form__input--job"
               placeholder="Ej:Master and Commander"
               type="text"

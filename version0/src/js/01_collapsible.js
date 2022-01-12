@@ -9,7 +9,7 @@ function handlerClickLegend(event) {
   collapseContent(event);
   rotateArrow(event);
 }
-
+                                                                   
 function rotateArrow(event) {
   event.currentTarget.parentNode.classList.toggle("rotateArrow");
   if (event.currentTarget === legendShare) {
