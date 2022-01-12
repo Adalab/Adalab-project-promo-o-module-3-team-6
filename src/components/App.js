@@ -1,5 +1,6 @@
 import '../styles/App.scss';
 import imgTarjetasMolonas from '../images/tarjetas-molonas.png';
+//Recordar styles que sacamos de html
 
 function App() {
   return (
