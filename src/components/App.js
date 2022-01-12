@@ -1,4 +1,5 @@
 import '../styles/App.scss';
+import imgTarjetasMolonas from '../images/tarjetas-molonas.png';
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       >
         <img
           className="header__logo"
-          src="./assets/images/tarjetas-molonas.png"
+          src={imgTarjetasMolonas}
           alt="Logo de Awesome Profile Cards"
           title="Logo de Awesome Profile Cards"
         />
