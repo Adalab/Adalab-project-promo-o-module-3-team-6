@@ -227,10 +227,7 @@ function App() {
           <section className="share__result collapseShare">
             <p className="share__result--title">La tarjeta ha sido creada:</p>
             <a href="" className="share__result--link js_share_link" target="_blank"></a>
-<<<<<<< HEAD
-=======
             {/* <!--Este texto habrá que eliminarlo, es el link generado. Lo pongo para comprobar los estilos--> */}
->>>>>>> 607838d1c94003bd2bf3c1e9bd015e62072c7a5e
             <a href="https://twitter.com/intent/tweet?text=" className="share__result--btn js-twitter" target="_blank ">
               <i className="fab fa-twitter"></i>
               <p>Compartir en twitter</p>
