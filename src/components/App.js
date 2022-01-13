@@ -5,26 +5,19 @@ import { useState } from 'react';
 
 function App() {
   const [data, setData] = useState({
-    palette: 1,
-    name: 'Nombre Completo',
+    palette: '1',
+    name: '',
     job: '',
-
+    email:'',
+    phone:'',
+    linkedin:'',
+    github:'',
   });
 const handleInput = (ev) =>{
   const inputChanged = ev.currentTarget.name;
+  setData ({...data, [inputChanged]:ev.currentTarget.value})
   
-  if (inputChanged === 'name'){
-    setData({
-      ...data,
-      name:ev.currentTarget.value,
-    });
-  } else if (inputChanged === 'job'){
-      setData({
-        ...data,
-        job:ev.currentTarget.value,
-      });
-    
-  }
+
 }
 
   return (
@@ -59,16 +52,16 @@ const handleInput = (ev) =>{
         	</div>
         	<div className="preview__article--img js__profile-image"></div>
         	<div className="container">
-        		<a className="js-preview__phone" href="tel:" alt="Ir a móvil" target="_blank">
+        		<a className="js-preview__phone" href={`tel:${data.phone}`} alt="Ir a móvil" target="blank">
         			<div className="container-icon">
         				<i className="fas fa-mobile-alt contact-icon"></i>
         			</div>
         		</a>
         		<a
         			className="js-preview__mail"
-        			href="#"
+        			href={`mailto:${data.email}`}
         			alt="Ir a correo electronico"
-        			target="_blank"
+        			target="blank"
         		>
         			<div className="container-icon">
         				<i className="far fa-envelope contact-icon"></i>
@@ -76,9 +69,9 @@ const handleInput = (ev) =>{
         		</a>
         		<a
         			className="js-preview__linkedin"
-        			href="#"
+        			href={`https://www.linkedin.com/${data.linkedin}`}
         			alt="Ir a la página de Linkedin"
-        			target="_blank"
+        			target="blank"
         		>
         			<div className="container-icon">
         				<i className="fab fa-linkedin-in contact-icon"></i>
@@ -86,9 +79,9 @@ const handleInput = (ev) =>{
         		</a>
         		<a
         			className="js-preview__github"
-        			href="#"
+        			href={`https://www.github.com/${data.github}`}
         			alt="Ir a la página de GitHub"
-        			target="_blank"
+        			target="blank"
         		>
         			<div className="container-icon">
         				<i className="fab fa-github-alt contact-icon"></i>
@@ -171,6 +164,7 @@ const handleInput = (ev) =>{
               type="text"
               id="name"
               name="name"
+              value={data.name}
               required
             />
             <label className="form__label" htmlFor="job">Puesto</label>
@@ -181,6 +175,7 @@ const handleInput = (ev) =>{
               type="text"
               id="job"
               name="job"
+              value={data.job}
               required
             />
             <p className="form__label">Imagen de perfil</p>
@@ -193,41 +188,50 @@ const handleInput = (ev) =>{
               className="hidden js__profile-upload-btn input"
               name="photo"
               id="photo"
+              
             />
 
             <label className="form__label" htmlFor="emailAdress">Email</label>
             <input
+            onChange={handleInput}
               className="input form__label--input js-form__input--mail"
               placeholder="Ej:maripuri@lamaster.com"
               type="email"
               id="email"
               name="email"
+              value={data.email}
               required
             />
             <label className="form__label" htmlFor="phone">Teléfono</label>
             <input
+            onChange={handleInput}
               className="input form__label--input js-form__input--phone"
               placeholder="Ej:+34 611661234"
               type="text"
               id="phone"
               name="phone"
+              value={data.phone}
               required
             />
             <label className="form__label" htmlFor="linkedIn">LinkedIn</label>
             <input
+            onChange={handleInput}
               className="input form__label--input js-form__input--linkedin"
               placeholder="Ej:linkedin.com/es/lamari.master"
               type="text"
               id="linkedin"
               name="linkedin"
+              value={data.linkedin}
             />
             <label className="form__label" htmlFor="gitHub">Github</label>
             <input
+            onChange={handleInput}
               className="input form__label--input js-form__input--github"
               placeholder="Ej:@lamari"
               type="text"
               id="github"
               name="github"
+              value={data.github}
             />
           </div>
         </fieldset>
