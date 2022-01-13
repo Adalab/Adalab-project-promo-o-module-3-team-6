@@ -120,8 +120,8 @@ function App() {
               className="legend js_legendDesign"
               title="Pulsa para desplegar"
             >
-              {' '}
-              {/*style="cursor: pointer"*/}
+              
+            
               <div className="legend__iconTitle">
                 <div>
                   <i className="far fa-object-ungroup item--icon"></i>
@@ -130,7 +130,7 @@ function App() {
               </div>
               <div>
                 <i className="fas fa-chevron-down"></i>
-              </div>{' '}
+              </div>
               {/*style="color: #54585a"*/}
             </legend>
 
@@ -189,8 +189,7 @@ function App() {
               className="legend js_legendFill"
               title="Pulsa para desplegar"
             >
-              {' '}
-              {/* style="cursor: pointer" */}
+              
               <div className="legend__iconTitle">
                 <div>
                   <i className="far fa-keyboard item--icon"></i>
@@ -302,8 +301,7 @@ function App() {
               className="legend js_legendShare"
               title="Pulsa para desplegar"
             >
-              {' '}
-              {/*style="cursor: pointer"*/}
+              
               <div className="legend__iconTitle">
                 <div>
                   <i className="fas fa-share-alt item--icon"></i>
@@ -315,7 +313,7 @@ function App() {
               </div>
             </legend>
             {/* style="color: #54585a" */}
-            <div className="share__container js_collapsible">
+            <div className="share__container">
               <button className="share__create_btn--off js_shareBtn">
                 <i className="far fa-address-card"></i>
                 Crear tarjeta
@@ -330,7 +328,7 @@ function App() {
                   className="share__result--link js_share_link"
                   target="_blank"
                 ></a>
-                {/* <!--Este texto habrá que eliminarlo, es el link generado. Lo pongo para comprobar los estilos--> */}
+                
                 <a
                   href="https://twitter.com/intent/tweet?text="
                   className="share__result--btn js-twitter"
@@ -346,7 +344,7 @@ function App() {
       </main>
 
       <footer className="footer ">
-        <p className="footer__text">Awesome profile-cards @2021</p>
+        <p className="footer__text">Awesome profile-cards @2022</p>
         <a className="footer__link" title="logo de adalab" target="_blank">
           <img
             className="footer__link-image"

@@ -29,6 +29,7 @@
     justify-content: space-between;
     padding: 0 12px;
     background: transparent;
+    cursor: pointer;
     @include tablet {
       transform: translateX(-107%);
     }
