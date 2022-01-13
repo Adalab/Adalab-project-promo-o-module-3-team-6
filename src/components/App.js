@@ -21,8 +21,19 @@ function App() {
   const handleInput = (ev) => {
     const inputChanged = ev.currentTarget.name;
     setData({ ...data, [inputChanged]: ev.currentTarget.value });
-    console.log(data);
   };
+
+  const handleClickReset = (ev) => {
+    setData({
+      palette: '1',
+      name: '',
+      job: '',
+      email: '',
+      phone: '',
+      linkedin: '',
+      github: '',
+    });
+  }
 
   return (
     <div>
@@ -43,7 +54,7 @@ function App() {
 
       <main className="main">
         <section className="preview">
-          <button className="preview__btn js-resetBtn" type="reset">
+          <button onClick={handleClickReset} className="preview__btn js-resetBtn" type="reset">
             <i className="far fa-trash-alt"></i>
             Reset
           </button>
