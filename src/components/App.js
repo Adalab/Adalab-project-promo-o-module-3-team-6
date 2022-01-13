@@ -54,12 +54,12 @@ function App() {
 
       <main className="main">
         <section className="preview">
-          <button onClick={handleClickReset} className="preview__btn js-resetBtn" type="reset">
+          <button onClick={handleClickReset} className="preview__btn js-resetBtn" type="reset" form="form">
             <i className="far fa-trash-alt"></i>
             Reset
           </button>
 
-          <article className="preview__article palette-1">
+          <article className={`preview__article palette-${data.palette}`}>
             <div className="preview__article--container">
               <div className="preview__article--rectangle js-rectangle"></div>
               <h2 className="preview__article--name js-preview__name">
@@ -114,7 +114,7 @@ function App() {
             </div>
           </article>
         </section>
-        <form onSubmit={handleSubmit} className="dashboard js-reset">
+        <form onSubmit={handleSubmit} className="dashboard js-reset" id="form">
           <fieldset className="fieldset rotateArrow">
             <legend
               className="legend js_legendDesign"
