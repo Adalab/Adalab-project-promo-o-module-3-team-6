@@ -1,18 +1,29 @@
+import ls from '../services/localStorage';
 import '../styles/App.scss';
 import imgTarjetasMolonas from '../images/tarjetas-molonas.png';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 //Recordar styles que sacamos de html
 
 function App() {
-  const [data, setData] = useState({
-    palette: '1',
-    name: '',
-    job: '',
-    email: '',
-    phone: '',
-    linkedin: '',
-    github: '',
-  });
+  const [data, setData] = useState(
+    ls.get(
+      'data',
+      {
+        palette: '1',
+        name: '',
+        job: '',
+        phone: '',
+        email: '',
+        linkedin: '',
+        gitHub: '',
+        // photo: '',
+      } || ''
+    )
+  );
+
+  useEffect(() => {
+    ls.set('data', data);
+  }, [data]);
 
   const [collapsables, setCollapsabes] = useState({
     'designCollapsable' : false,
@@ -66,7 +77,12 @@ function App() {
 
       <main className="main">
         <section className="preview">
-          <button onClick={handleClickReset} className="preview__btn js-resetBtn" type="reset" form="form">
+          <button
+            onClick={handleClickReset}
+            className="preview__btn js-resetBtn"
+            type="reset"
+            form="form"
+          >
             <i className="far fa-trash-alt"></i>
             Reset
           </button>
@@ -133,8 +149,6 @@ function App() {
               className="legend js_legendDesign"
               title="Pulsa para desplegar"
             >
-              
-            
               <div className="legend__iconTitle">
                 <div>
                   <i className="far fa-object-ungroup item--icon"></i>
@@ -152,14 +166,13 @@ function App() {
               <ul>
                 <li className="color_blue">
                   <input
-                  onChange={handleInput}
+                    onChange={handleInput}
                     className="radio js-radio js-palette-1 input"
                     type="radio"
                     value="1"
                     id="color_blue"
                     name="palette"
-                    checked={data.palette==='1'}
-                    
+                    checked={data.palette === '1'}
                   />
                   <div className="color_blue--dark"></div>
                   <div className="color_blue--medium"></div>
@@ -167,13 +180,13 @@ function App() {
                 </li>
                 <li className="color_red">
                   <input
-                  onChange={handleInput}
+                    onChange={handleInput}
                     className="radio js-radio js-palette-2 input"
                     type="radio"
                     value="2"
                     id="color_red"
                     name="palette"
-                    checked={data.palette==='2'}
+                    checked={data.palette === '2'}
                   />
                   <div className="color_red--dark"></div>
                   <div className="color_red--medium"></div>
@@ -181,13 +194,13 @@ function App() {
                 </li>
                 <li className="color_grey">
                   <input
-                  onChange={handleInput}
+                    onChange={handleInput}
                     className="radio js-radio js-palette-3 input"
                     type="radio"
                     value="3"
                     id="color_grey"
                     name="palette"
-                    checked={data.palette==='3'}
+                    checked={data.palette === '3'}
                   />
                   <div className="color_grey--dark"></div>
                   <div className="color_grey--medium"></div>
@@ -203,7 +216,6 @@ function App() {
               className="legend js_legendFill"
               title="Pulsa para desplegar"
             >
-              
               <div className="legend__iconTitle">
                 <div>
                   <i className="far fa-keyboard item--icon"></i>
@@ -317,7 +329,6 @@ function App() {
               className="legend js_legendShare"
               title="Pulsa para desplegar"
             >
-              
               <div className="legend__iconTitle">
                 <div>
                   <i className="fas fa-share-alt item--icon"></i>
@@ -344,7 +355,7 @@ function App() {
                   className="share__result--link js_share_link"
                   target="_blank"
                 ></a>
-                
+
                 <a
                   href="https://twitter.com/intent/tweet?text="
                   className="share__result--btn js-twitter"
