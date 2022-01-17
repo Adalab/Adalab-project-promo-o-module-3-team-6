@@ -42,7 +42,7 @@ function App() {
   }
 //no funciona, falta repasarlo, pregunar en tutoria
   const handleCollapsables = (ev) =>{ 
-    const fieldsetId = ev.currentTarget.id; 
+    const fieldsetId = ev.target.id; 
     setCollapsabes({...collapsables,  [fieldsetId]: !collapsables[fieldsetId]});
   
   }
@@ -127,8 +127,9 @@ function App() {
           </article>
         </section>
         <form onSubmit={handleSubmit} className="dashboard js-reset" id="form">
-          <fieldset onClick={handleCollapsables} id="designCollapsable" className={`fieldset   ${collapsables.designCollapsable ? 'collapse' : 'rotateArrow'}`}>
+          <fieldset className={`fieldset   ${collapsables.designCollapsable ? 'collapse' : 'rotateArrow'}`}>
             <legend
+            onClick={handleCollapsables} id="designCollapsable" 
               className="legend js_legendDesign"
               title="Pulsa para desplegar"
             >
@@ -196,8 +197,9 @@ function App() {
             </div>
           </fieldset>
 
-          <fieldset onClick={handleCollapsables}  id="fillCollapsable" className={`fieldset ${collapsables.fillCollapsable ? 'collapse' : 'rotateArrow'}`}>
+          <fieldset  className={`fieldset ${collapsables.fillCollapsable ? 'collapse' : 'rotateArrow'}`}>
             <legend
+            onClick={handleCollapsables}  id="fillCollapsable"
               className="legend js_legendFill"
               title="Pulsa para desplegar"
             >
@@ -308,8 +310,10 @@ function App() {
             </div>
           </fieldset>
 
-          <fieldset onClick={handleCollapsables}  id="shareCollapsable" className={`share fieldset ${collapsables.shareCollapsable ? 'collapse' : 'rotateArrow'}`}>
+          <fieldset  className={`share fieldset ${collapsables.shareCollapsable ? 'collapse' : 'rotateArrow'}`}>
             <legend
+              onClick={handleCollapsables}  
+              id="shareCollapsable"
               className="legend js_legendShare"
               title="Pulsa para desplegar"
             >
