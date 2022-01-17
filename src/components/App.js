@@ -14,6 +14,12 @@ function App() {
     github: '',
   });
 
+  const [collapsables, setCollapsabes] = useState({
+    'designCollapsable' : false,
+    'fillCollapsable' : true,
+    'shareCollapsable' : true,
+  })
+
   const handleSubmit = (ev) => {
     ev.preventDefault();
   };
@@ -33,6 +39,12 @@ function App() {
       linkedin: '',
       github: '',
     });
+  }
+//no funciona, falta repasarlo, pregunar en tutoria
+  const handleCollapsables = (ev) =>{ 
+    const fieldsetId = ev.currentTarget.id; 
+    setCollapsabes({...collapsables,  [fieldsetId]: !collapsables[fieldsetId]});
+  
   }
 
   return (
@@ -115,7 +127,7 @@ function App() {
           </article>
         </section>
         <form onSubmit={handleSubmit} className="dashboard js-reset" id="form">
-          <fieldset className="fieldset rotateArrow">
+          <fieldset onClick={handleCollapsables} id="designCollapsable" className={`fieldset   ${collapsables.designCollapsable ? 'collapse' : 'rotateArrow'}`}>
             <legend
               className="legend js_legendDesign"
               title="Pulsa para desplegar"
@@ -184,7 +196,7 @@ function App() {
             </div>
           </fieldset>
 
-          <fieldset className="fieldset collapse">
+          <fieldset onClick={handleCollapsables}  id="fillCollapsable" className={`fieldset ${collapsables.fillCollapsable ? 'collapse' : 'rotateArrow'}`}>
             <legend
               className="legend js_legendFill"
               title="Pulsa para desplegar"
@@ -202,7 +214,7 @@ function App() {
             </legend>
             {/* style="color: #54585a" */}
 
-            <div className="form ">
+            <div className="form js_collapsible">
               <label className="form__label" htmlFor="name">
                 Nombre completo
               </label>
@@ -296,7 +308,7 @@ function App() {
             </div>
           </fieldset>
 
-          <fieldset className="share fieldset collapse">
+          <fieldset onClick={handleCollapsables}  id="shareCollapsable" className={`share fieldset ${collapsables.shareCollapsable ? 'collapse' : 'rotateArrow'}`}>
             <legend
               className="legend js_legendShare"
               title="Pulsa para desplegar"
@@ -313,7 +325,7 @@ function App() {
               </div>
             </legend>
             {/* style="color: #54585a" */}
-            <div className="share__container">
+            <div className="share__container js_collapsible">
               <button className="share__create_btn--off js_shareBtn">
                 <i className="far fa-address-card"></i>
                 Crear tarjeta
