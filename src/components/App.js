@@ -1,6 +1,7 @@
 import ls from '../services/localStorage';
 import '../styles/App.scss';
 import Header from './Header';
+import Footer from './Footer';
 import { useEffect, useState } from 'react';
 //Recordar styles que sacamos de html
 
@@ -357,16 +358,7 @@ function App() {
         </form>
       </main>
 
-      <footer className="footer ">
-        <p className="footer__text">Awesome profile-cards @2022</p>
-        <a className="footer__link" title="logo de adalab" target="_blank">
-          <img
-            className="footer__link-image"
-            src="./assets/images/logo-adalab.png"
-            alt="logo adalab"
-          />
-        </a>
-      </footer>
+      <Footer />
     </div>
   );
 }
