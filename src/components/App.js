@@ -1,6 +1,6 @@
 import ls from '../services/localStorage';
 import '../styles/App.scss';
-import imgTarjetasMolonas from '../images/tarjetas-molonas.png';
+import Header from './Header';
 import { useEffect, useState } from 'react';
 //Recordar styles que sacamos de html
 
@@ -60,20 +60,7 @@ function App() {
 
   return (
     <div>
-      <header className="header">
-        <a
-          href="./index.html"
-          title="Ir a la página de inicio"
-          alt="Ir a la página de inicio"
-        >
-          <img
-            className="header__logo"
-            src={imgTarjetasMolonas}
-            alt="Logo de Awesome Profile Cards"
-            title="Logo de Awesome Profile Cards"
-          />
-        </a>
-      </header>
+      <Header />
 
       <main className="main">
         <section className="preview">
