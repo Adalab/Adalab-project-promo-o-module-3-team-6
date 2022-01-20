@@ -1,3 +1,5 @@
+import '../../styles/layout/Design.scss';
+
 const Design = (props) => {
   const handleInput = (ev) => {
     const inputChanged = ev.currentTarget.name;
