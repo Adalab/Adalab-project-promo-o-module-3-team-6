@@ -3,6 +3,7 @@ import '../styles/App.scss';
 import Header from './Header';
 import Footer from './Footer';
 import { useEffect, useState } from 'react';
+import Preview from './preview/Preview';
 //Recordar styles que sacamos de html
 
 function App() {
@@ -27,9 +28,9 @@ function App() {
   }, [data]);
 
   const [collapsables, setCollapsabes] = useState({
-    'designCollapsable' : false,
-    'fillCollapsable' : true,
-    'shareCollapsable' : true,
+    'designCollapsable': false,
+    'fillCollapsable': true,
+    'shareCollapsable': true,
   })
 
   const handleSubmit = (ev) => {
@@ -41,7 +42,7 @@ function App() {
     setData({ ...data, [inputChanged]: ev.currentTarget.value });
   };
 
-  const handleClickReset = (ev) => {
+  const handleClickReset = () => {
     setData({
       palette: '1',
       name: '',
@@ -52,11 +53,11 @@ function App() {
       github: '',
     });
   }
-//no funciona, falta repasarlo, pregunar en tutoria
-  const handleCollapsables = (ev) =>{ 
-    const fieldsetId = ev.target.id; 
-    setCollapsabes({...collapsables,  [fieldsetId]: !collapsables[fieldsetId]});
-  
+  //no funciona, falta repasarlo, pregunar en tutoria
+  const handleCollapsables = (ev) => {
+    const fieldsetId = ev.target.id;
+    setCollapsabes({ ...collapsables, [fieldsetId]: !collapsables[fieldsetId] });
+
   }
 
   return (
@@ -64,76 +65,11 @@ function App() {
       <Header />
 
       <main className="main">
-        <section className="preview">
-          <button
-            onClick={handleClickReset}
-            className="preview__btn js-resetBtn"
-            type="reset"
-            form="form"
-          >
-            <i className="far fa-trash-alt"></i>
-            Reset
-          </button>
-
-          <article className={`preview__article palette-${data.palette}`}>
-            <div className="preview__article--container">
-              <div className="preview__article--rectangle js-rectangle"></div>
-              <h2 className="preview__article--name js-preview__name">
-                {data.name || 'Nombre Completo'}
-              </h2>
-              <h3 className="preview__article--job js-preview__job">
-                {data.job || 'Front-end developer'}
-              </h3>
-            </div>
-            <div className="preview__article--img js__profile-image"></div>
-            <div className="container">
-              <a
-                className="js-preview__phone"
-                href={`tel:${data.phone}`}
-                alt="Ir a móvil"
-                target="blank"
-              >
-                <div className="container-icon">
-                  <i className="fas fa-mobile-alt contact-icon"></i>
-                </div>
-              </a>
-              <a
-                className="js-preview__mail"
-                href={`mailto:${data.email}`}
-                alt="Ir a correo electronico"
-                target="blank"
-              >
-                <div className="container-icon">
-                  <i className="far fa-envelope contact-icon"></i>
-                </div>
-              </a>
-              <a
-                className="js-preview__linkedin"
-                href={`https://www.linkedin.com/${data.linkedin}`}
-                alt="Ir a la página de Linkedin"
-                target="blank"
-              >
-                <div className="container-icon">
-                  <i className="fab fa-linkedin-in contact-icon"></i>
-                </div>
-              </a>
-              <a
-                className="js-preview__github"
-                href={`https://www.github.com/${data.github}`}
-                alt="Ir a la página de GitHub"
-                target="blank"
-              >
-                <div className="container-icon">
-                  <i className="fab fa-github-alt contact-icon"></i>
-                </div>
-              </a>
-            </div>
-          </article>
-        </section>
+        <Preview data={data} handleClickReset={handleClickReset} />
         <form onSubmit={handleSubmit} className="dashboard js-reset" id="form">
           <fieldset className={`fieldset   ${collapsables.designCollapsable ? 'collapse' : 'rotateArrow'}`}>
             <legend
-            onClick={handleCollapsables} id="designCollapsable" 
+              onClick={handleCollapsables} id="designCollapsable"
               className="legend js_legendDesign"
               title="Pulsa para desplegar"
             >
@@ -198,9 +134,9 @@ function App() {
             </div>
           </fieldset>
 
-          <fieldset  className={`fieldset ${collapsables.fillCollapsable ? 'collapse' : 'rotateArrow'}`}>
+          <fieldset className={`fieldset ${collapsables.fillCollapsable ? 'collapse' : 'rotateArrow'}`}>
             <legend
-            onClick={handleCollapsables}  id="fillCollapsable"
+              onClick={handleCollapsables} id="fillCollapsable"
               className="legend js_legendFill"
               title="Pulsa para desplegar"
             >
@@ -310,9 +246,9 @@ function App() {
             </div>
           </fieldset>
 
-          <fieldset  className={`share fieldset ${collapsables.shareCollapsable ? 'collapse' : 'rotateArrow'}`}>
+          <fieldset className={`share fieldset ${collapsables.shareCollapsable ? 'collapse' : 'rotateArrow'}`}>
             <legend
-              onClick={handleCollapsables}  
+              onClick={handleCollapsables}
               id="shareCollapsable"
               className="legend js_legendShare"
               title="Pulsa para desplegar"
