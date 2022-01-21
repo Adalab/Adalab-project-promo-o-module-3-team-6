@@ -1,41 +1,35 @@
-import '../../styles/layout/Fill.scss';
+import "../../styles/layout/Fill.scss";
+import Input from "./Input";
 
 const Fill = (props) => {
-
-  const handleInput = (ev) => {
+  /*const handleInput = (ev) => {
     const inputChanged = ev.currentTarget.name;
     const inputValue = ev.currentTarget.value;
     props.handleInput(inputChanged, inputValue);
-  }
+  }*/
 
   return (
     <div className="form js_collapsible">
-      <label className="form__label" htmlFor="name">
-        Nombre completo
-      </label>
-      <input
-        onChange={handleInput}
-        className="input form__label--input js-form__input--name"
-        placeholder="Ej:Mari Puri López"
-        type="text"
-        id="name"
-        name="name"
-        value={props.data.name}
-        required
+      <Input
+        labelText="Nombre completo"
+        inputId="name"
+        inputType="text"
+        handleInput={props.handleInput}
+        inputPlaceholder="Ej:Mari Puri López"
+        required={true}
+        data={props.data.name}
       />
-      <label className="form__label" htmlFor="job">
-        Puesto
-      </label>
-      <input
-        onChange={handleInput}
-        className="input form__label--input js-form__input--job"
-        placeholder="Ej:Master and Commander"
-        type="text"
-        id="job"
-        name="job"
-        value={props.data.job}
-        required
+
+      <Input
+        labelText="Puesto"
+        inputId="job"
+        inputType="text"
+        handleInput={props.handleInput}
+        inputPlaceholder="Ej:Master and Commander"
+        required={true}
+        data={props.data.job}
       />
+
       <p className="form__label">Imagen de perfil</p>
       <div className="form__label--wrapper">
         <label htmlFor="photo" className="button">
@@ -50,58 +44,46 @@ const Fill = (props) => {
         id="photo"
       />
 
-      <label className="form__label" htmlFor="emailAdress">
-        Email
-      </label>
-      <input
-        onChange={handleInput}
-        className="input form__label--input js-form__input--mail"
-        placeholder="Ej:maripuri@lamaster.com"
-        type="email"
-        id="email"
-        name="email"
-        value={props.data.email}
-        required
+      <Input
+        labelText="Email"
+        inputId="email"
+        inputType="email"
+        handleInput={props.handleInput}
+        inputPlaceholder="Ej:maripuri@lamaster.com"
+        required={true}
+        data={props.data.email}
       />
-      <label className="form__label" htmlFor="phone">
-        Teléfono
-      </label>
-      <input
-        onChange={handleInput}
-        className="input form__label--input js-form__input--phone"
-        placeholder="Ej:+34 611661234"
-        type="text"
-        id="phone"
-        name="phone"
-        value={props.data.phone}
-        required
+      <Input
+        labelText="Teléfono"
+        inputId="phone"
+        inputType="tel"
+        handleInput={props.handleInput}
+        inputPlaceholder="Ej:+34 611661234"
+        required={false}
+        data={props.data.phone}
       />
-      <label className="form__label" htmlFor="linkedIn">
-        LinkedIn
-      </label>
-      <input
-        onChange={handleInput}
-        className="input form__label--input js-form__input--linkedin"
-        placeholder="Ej:linkedin.com/es/lamari.master"
-        type="text"
-        id="linkedin"
-        name="linkedin"
-        value={props.data.linkedin}
+
+      <Input
+        labelText="LinkedIn"
+        inputId="linkedin"
+        inputType="text"
+        handleInput={props.handleInput}
+        inputPlaceholder="Ej:lamari.master"
+        required={false}
+        data={props.data.linkedin}
       />
-      <label className="form__label" htmlFor="gitHub">
-        Github
-      </label>
-      <input
-        onChange={handleInput}
-        className="input form__label--input js-form__input--github"
-        placeholder="Ej:@lamari"
-        type="text"
-        id="github"
-        name="github"
-        value={props.data.github}
+
+      <Input
+        labelText="Github"
+        inputId="github"
+        inputType="text"
+        handleInput={props.handleInput}
+        inputPlaceholder="Ej:@lamari"
+        required={false}
+        data={props.data.github}
       />
     </div>
-  )
-}
+  );
+};
 
 export default Fill;
