@@ -1,13 +1,8 @@
 import "../../styles/layout/Fill.scss";
+import GetAvatar from "./imageComponent/GetAvatar";
 import Input from "./Input";
 
 const Fill = (props) => {
-  /*const handleInput = (ev) => {
-    const inputChanged = ev.currentTarget.name;
-    const inputValue = ev.currentTarget.value;
-    props.handleInput(inputChanged, inputValue);
-  }*/
-
   return (
     <div className="form js_collapsible">
       <Input
@@ -30,19 +25,7 @@ const Fill = (props) => {
         data={props.data.job}
       />
 
-      <p className="form__label">Imagen de perfil</p>
-      <div className="form__label--wrapper">
-        <label htmlFor="photo" className="button">
-          Añadir imagen
-        </label>
-        <div className="imgPreview js__profile-preview"></div>
-      </div>
-      <input
-        type="file"
-        className="hidden js__profile-upload-btn input"
-        name="photo"
-        id="photo"
-      />
+      <GetAvatar avatar={props.data.photo} updateAvatar={props.handleInput} />
 
       <Input
         labelText="Email"
@@ -75,12 +58,12 @@ const Fill = (props) => {
 
       <Input
         labelText="Github"
-        inputId="github"
+        inputId="gitHub"
         inputType="text"
         handleInput={props.handleInput}
         inputPlaceholder="Ej:@lamari"
         required={false}
-        data={props.data.github}
+        data={props.data.gitHub}
       />
     </div>
   );
