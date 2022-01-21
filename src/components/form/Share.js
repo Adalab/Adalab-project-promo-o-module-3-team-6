@@ -1,3 +1,5 @@
+import "../../styles/layout/Share.scss";
+
 const Share = (props) => {
   const handleClick = () => {
     console.log(props.data);
