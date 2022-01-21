@@ -2,7 +2,6 @@ import Design from "./Design";
 import Fill from "./Fill";
 import Share from "./Share";
 
-
 const Form = (props) => {
   const handleSubmit = (ev) => {
     ev.preventDefault();
@@ -11,12 +10,17 @@ const Form = (props) => {
   const handleCollapsables = (ev) => {
     const fieldsetId = ev.target.id;
     props.handleCollapsables(fieldsetId);
-  }
+  };
   return (
     <form onSubmit={handleSubmit} className="dashboard js-reset" id="form">
-      <fieldset className={`fieldset   ${props.collapsables.designCollapsable ? 'collapse' : 'rotateArrow'}`}>
+      <fieldset
+        className={`fieldset   ${
+          props.collapsables.designCollapsable ? "collapse" : "rotateArrow"
+        }`}
+      >
         <legend
-          onClick={handleCollapsables} id="designCollapsable"
+          onClick={handleCollapsables}
+          id="designCollapsable"
           className="legend js_legendDesign"
           title="Pulsa para desplegar"
         >
@@ -32,12 +36,16 @@ const Form = (props) => {
           {/*style="color: #54585a"*/}
         </legend>
         <Design data={props.data} handleInput={props.handleInput} />
-
       </fieldset>
 
-      <fieldset className={`fieldset ${props.collapsables.fillCollapsable ? 'collapse' : 'rotateArrow'}`}>
+      <fieldset
+        className={`fieldset ${
+          props.collapsables.fillCollapsable ? "collapse" : "rotateArrow"
+        }`}
+      >
         <legend
-          onClick={handleCollapsables} id="fillCollapsable"
+          onClick={handleCollapsables}
+          id="fillCollapsable"
           className="legend js_legendFill"
           title="Pulsa para desplegar"
         >
@@ -56,7 +64,11 @@ const Form = (props) => {
         <Fill data={props.data} handleInput={props.handleInput} />
       </fieldset>
 
-      <fieldset className={`share fieldset ${props.collapsables.shareCollapsable ? 'collapse' : 'rotateArrow'}`}>
+      <fieldset
+        className={`share fieldset ${
+          props.collapsables.shareCollapsable ? "collapse" : "rotateArrow"
+        }`}
+      >
         <legend
           onClick={handleCollapsables}
           id="shareCollapsable"
@@ -74,9 +86,14 @@ const Form = (props) => {
           </div>
         </legend>
         {/* style="color: #54585a" */}
-       <Share />
+        <Share
+          postToApi={props.postToApi}
+          cardUrl={props.cardUrl}
+          data={props.data}
+          setCardUrl={props.setCardUrl}
+        />
       </fieldset>
     </form>
-  )
-}
+  );
+};
 export default Form;

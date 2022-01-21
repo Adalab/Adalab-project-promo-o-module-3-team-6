@@ -5,7 +5,7 @@ import Footer from "./Footer";
 import { useEffect, useState } from "react";
 import Preview from "./preview/Preview";
 import Form from "./form/Form";
-import defaultImage from "../images/no-me-entero-de-nada.jpg";
+import postToApi from "../services/postToApi";
 //Recordar styles que sacamos de html
 
 function App() {
@@ -19,11 +19,12 @@ function App() {
         phone: "",
         email: "",
         linkedin: "",
-        gitHub: "",
+        github: "",
         photo: "",
       } || ""
     )
   );
+  const [cardUrl, setCardUrl] = useState("");
 
   useEffect(() => {
     ls.set("data", data);
@@ -47,7 +48,7 @@ function App() {
       email: "",
       phone: "",
       linkedin: "",
-      gitHub: "",
+      github: "",
       photo: "",
     });
   };
@@ -69,6 +70,9 @@ function App() {
           collapsables={collapsables}
           handleCollapsables={handleCollapsables}
           handleInput={handleInput}
+          postToApi={postToApi}
+          cardUrl={cardUrl}
+          setCardUrl={setCardUrl}
         />
       </main>
 

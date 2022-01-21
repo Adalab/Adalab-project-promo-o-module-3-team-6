@@ -57,13 +57,13 @@ const Fill = (props) => {
       />
 
       <Input
-        labelText="Github"
-        inputId="gitHub"
+        labelText="github"
+        inputId="github"
         inputType="text"
         handleInput={props.handleInput}
         inputPlaceholder="Ej:@lamari"
         required={false}
-        data={props.data.gitHub}
+        data={props.data.github}
       />
     </div>
   );
