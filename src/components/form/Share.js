@@ -26,7 +26,7 @@ const Share = (props) => {
         </a>
 
         <a
-          href="https://twitter.com/intent/tweet?text="
+          href={`https://twitter.com/intent/tweet?text=%C2%A1Comparte%20esta%20tarjeta%20tan%20molona%21&url=${props.cardUrl}`}
           className="share__result--btn js-twitter"
           target="_blank "
         >
